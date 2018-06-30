@@ -82,3 +82,6 @@
 //#define DEBUG_MATRIX_SCAN_RATE
 
 #endif
+
+/* Adding this for RSTHD */
+#define USE_SERIAL

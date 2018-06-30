@@ -16,6 +16,8 @@
 #include "xd75.h"
 #include "backlight.h"
 
+// First attempt at Atreus-dvoral layout on XD75RE
+
 // Fillers to make layering more clear
 #define _______ KC_TRNS
 #define ___T___ KC_TRNS
