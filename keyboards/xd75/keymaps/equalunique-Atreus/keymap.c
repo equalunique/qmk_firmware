@@ -54,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { XXXXXXX, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    XXXXXXX, XXXXXXX, XXXXXXX, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    XXXXXXX  },
   { XXXXXXX, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    XXXXXXX, XXXXXXX, XXXXXXX, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, XXXXXXX  },
   { XXXXXXX, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    XXXXXXX, XXXXXXX, XXXXXXX, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX  },
-  { XXXXXXX, KC_ESC,  KC_TAB,  KC_LGUI, KC_LSFT, ALTBKSP, XXXXXXX, WINCAD,  XXXXXXX, CTRLSPC, TT(_A1), KC_MINS, KC_QUOT, KC_ENT,  XXXXXXX  },
+
  },                                                                                                                               
                                                                                                                                   
 /* COLEMAK - MIT ENHANCED / GRID COMPATIBLE                                                                                       
@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { XXXXXXX, KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    XXXXXXX, XXXXXXX, XXXXXXX, KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, XXXXXXX  },
   { XXXXXXX, KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    XXXXXXX, XXXXXXX, XXXXXXX, KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    XXXXXXX  },
   { XXXXXXX, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    XXXXXXX, XXXXXXX, XXXXXXX, KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX  },
-  { XXXXXXX, KC_ESC,  KC_TAB,  KC_LGUI, KC_LSFT, ALTBKSP, XXXXXXX, WINCAD,  XXXXXXX, CTRLSPC, TT(_A1), KC_MINS, KC_QUOT, KC_ENT,  XXXXXXX  },
+  { XXXXXXX, KC_ESC,  KC_TAB,  KC_LGUI, KC_LSFT, KC_BSPC, KC_LCTL, WINCAD,  KC_LALT, KC_SPC,  TT(_A1), KC_MINS, KC_QUOT, KC_ENT,  XXXXXXX  },
  },                                                                                                                               
 	                                                                                                                          
 /* DVORAK - MIT ENHANCED / GRID COMPATIBLE                                                                                        
@@ -98,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { XXXXXXX, KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    XXXXXXX, XXXXXXX, XXXXXXX, KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    XXXXXXX  },
   { XXXXXXX, KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    XXXXXXX, XXXXXXX, XXXXXXX, KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    XXXXXXX  },
   { XXXXXXX, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    XXXXXXX, XXXXXXX, XXXXXXX, KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    XXXXXXX  },
-  { XXXXXXX, KC_ESC,  KC_TAB,  KC_LGUI, KC_LSFT, ALTBKSP, XXXXXXX, WINCAD,  XXXXXXX, CTRLSPC, TT(_A1), KC_MINS, KC_SLSH, KC_ENT,  XXXXXXX  },
+  { XXXXXXX, KC_ESC,  KC_TAB,  KC_LGUI, KC_LSFT, KC_BSPC, KC_LCTL, WINCAD,  KC_LALT, KC_SPC,  TT(_A1), KC_MINS, KC_SLSH, KC_ENT,  XXXXXXX  },
  },                                                                                                                               
                                                                                                                                   
 /* ATREUS LAYER 1                                                                                                                        
@@ -111,7 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  * | XXXXXX | [      | ]      | (      | )      | &      | RCTRL  | XXXXXX | RALT   | `      | 1      | 2      | 3      | \      | XXXXXX |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * | XXXXXX | ESC    | INS    | LGUI   | LSHIFT | BACKSP | LCTRL  | XXXXXX | LALT   | SPACE  | _XX    | 0      | .      | =      | XXXXXX |
+ * | XXXXXX | ESC    | INS    | LGUI   | LSHIFT | BACKSP | LCTRL  | XXXXXX | LALT   | SPACE  | _XX    | .      | 0      | =      | XXXXXX |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */                                                                                                                               
                                                                                                                                   
@@ -120,7 +120,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { XXXXXXX, KC_EXLM, KC_AT,   KC_UP,   KC_LCBR, KC_RCBR, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGUP, KC_7,    KC_8,    KC_9,    KC_ASTR, XXXXXXX  },
   { XXXXXXX, KC_HASH, KC_LEFT, KC_DOWN, KC_RGHT, KC_DLR,  XXXXXXX, XXXXXXX, XXXXXXX, KC_PGDN, KC_4,    KC_5,    KC_6,    KC_PLUS, XXXXXXX  },
   { XXXXXXX, KC_LBRC, KC_RBRC, KC_LPRN, KC_RPRN, KC_AMPR, XXXXXXX, XXXXXXX, XXXXXXX, KC_GRV,  KC_1,    KC_2,    KC_3,    KC_BSLS, XXXXXXX  },
-  { XXXXXXX, TO(_A2), KC_TAB,  KC_LGUI, KC_LSFT, ALTBKSP, XXXXXXX, WINCAD,  XXXXXXX, CTRLSPC, KC_TRNS, KC_0,    KC_DOT,  KC_EQL,  XXXXXXX  },
+  { XXXXXXX, TO(_A2), KC_TAB,  KC_LGUI, KC_LSFT, KC_BSPC, KC_LCTL, WINCAD,  KC_LALT, KC_SPC,  KC_TRNS, KC_DOT,  KC_0,    KC_EQL,  XXXXXXX  },
  },                                                                                                                               
                                                                                                                                   
 /* ATREUS LAYER 2                                                                                                                         
@@ -142,7 +142,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { XXXXXXX, KC_INS,  KC_HOME, KC_UP,   KC_END,  KC_PGUP, XXXXXXX, XXXXXXX, XXXXXXX, KC_UP,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  XXXXXXX  },
   { XXXXXXX, KC_DEL,  KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, XXXXXXX, XXXXXXX, XXXXXXX, KC_DOWN, KC_F4,   KC_F5,   KC_F6,   KC_F11,  XXXXXXX  },
   { XXXXXXX, XXXXXXX, KC_VOLU, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F12,  XXXXXXX  },
-  { XXXXXXX, XXXXXXX, KC_VOLD, KC_LGUI, KC_LSFT, ALTBKSP, XXXXXXX, WINCAD,  XXXXXXX, CTRLSPC, TO(_DV), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX  },
+  { XXXXXXX, XXXXXXX, KC_VOLD, KC_LGUI, KC_LSFT, KC_BSPC, KC_LCTL, WINCAD,  KC_LALT, KC_SPC,  TO(_DV), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX  },
  },                                                                                                                               
                                                                                                                                   
 /* FUNCTION                                                                                                                       
