@@ -1,4 +1,4 @@
-/* Copyright 2017 Evan J. Rowley (rowley.evan@gmail.com)
+/* Copyright 2018 Evan J. Rowley (rowley.evan@gmail.com)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
