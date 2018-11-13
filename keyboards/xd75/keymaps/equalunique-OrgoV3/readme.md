@@ -1,1 +1,1 @@
-Find more about this keymap on Keyboard Layout Editor (KLE): http://www.keyboard-layout-editor.com/#/gists/e6f4c42c0bb1759ce3e87776fe2148ea
+Find more about this keymap on Keyboard Layout Editor (KLE): http://www.keyboard-layout-editor.com/#/gists/bf63f7e5bf950c2b5928083a81ef2ee8
