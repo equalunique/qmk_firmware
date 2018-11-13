@@ -23,6 +23,7 @@ enum my_layers {
   _QWERTY,
   _COLEMAK,
   _DVORAK,
+  _SPCFUN,
   _NUM,
   _FUN,
   _ARROWS1,
@@ -35,16 +36,12 @@ enum my_keycodes {
   QWERTY = SAFE_RANGE,
   COLEMAK,
   DVORAK,
+  SPCFUN,
   NUM,
   FUN,
   ARROWS1,
-  ARROWS2,
   MOUSE1,
-  MOUSE2,
   BACKLIT,
-  EXT_FUN,
-  EXT_AR2,
-  EXT_MS2
 };
 
 // Fillers to make layering more clear.
@@ -52,6 +49,7 @@ enum my_keycodes {
 #define XXXXXXX KC_NO
 
 // Additional keycodes.
+#define SPCFUN LT(_SPCFUN, KC_SPC)
 #define NUM TT(_NUM)
 #define FUN TO(_FUN)
 #define ARROWS1 TT(_ARROWS1)
@@ -78,32 +76,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { XXXXXXX, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    XXXXXXX, XXXXXXX, XXXXXXX, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    XXXXXXX  },
   { KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    XXXXXXX, XXXXXXX, XXXXXXX, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC  },
   { KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    XXXXXXX, XXXXXXX, XXXXXXX, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT   },
-  { ARROWS1, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    XXXXXXX, XXXXXXX, XXXXXXX, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, MOUSE1   },
-  { XXXXXXX, XXXXXXX, XXXXXXX, LGUIOSM, LSFTOSM, NUM,     XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  LCTLOSM, LALTOSM, XXXXXXX, XXXXXXX, XXXXXXX  }
+  { MOUSE1,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    XXXXXXX, XXXXXXX, XXXXXXX, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, ARROWS1  },
+  { XXXXXXX, XXXXXXX, XXXXXXX, LGUIOSM, LSFTOSM, NUM,     XXXXXXX, XXXXXXX, XXXXXXX, SPCFUN,  LCTLOSM, LALTOSM, XXXXXXX, XXXXXXX, XXXXXXX  }
  },
 
  [_COLEMAK] = { /* COLEMAK */
   { XXXXXXX, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    XXXXXXX, XXXXXXX, XXXXXXX, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    XXXXXXX  },
   { KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    XXXXXXX, XXXXXXX, XXXXXXX, KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC  },
   { KC_ESC,  KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    XXXXXXX, XXXXXXX, XXXXXXX, KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_ENT   },
-  { ARROWS1, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    XXXXXXX, XXXXXXX, XXXXXXX, KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, MOUSE1   },
-  { XXXXXXX, XXXXXXX, XXXXXXX, LGUIOSM, LSFTOSM, NUM,     XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  LCTLOSM, LALTOSM, XXXXXXX, XXXXXXX, XXXXXXX  }
+  { MOUSE1,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    XXXXXXX, XXXXXXX, XXXXXXX, KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, ARROWS1  },
+  { XXXXXXX, XXXXXXX, XXXXXXX, LGUIOSM, LSFTOSM, NUM,     XXXXXXX, XXXXXXX, XXXXXXX, SPCFUN,  LCTLOSM, LALTOSM, XXXXXXX, XXXXXXX, XXXXXXX  }
  },
 
  [_DVORAK] = { /* DVORAK */
   { XXXXXXX, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    XXXXXXX, XXXXXXX, XXXXXXX, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    XXXXXXX  },
   { KC_TAB,  KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    XXXXXXX, XXXXXXX, XXXXXXX, KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_BSPC  },
   { KC_ESC,  KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    XXXXXXX, XXXXXXX, XXXXXXX, KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_ENT   },
-  { ARROWS1, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    XXXXXXX, XXXXXXX, XXXXXXX, KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    MOUSE1   },
-  { XXXXXXX, XXXXXXX, XXXXXXX, LGUIOSM, LSFTOSM, NUM,     XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  LCTLOSM, LALTOSM, XXXXXXX, XXXXXXX, XXXXXXX  }
+  { MOUSE1,  KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    XXXXXXX, XXXXXXX, XXXXXXX, KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    ARROWS1  },
+  { XXXXXXX, XXXXXXX, XXXXXXX, LGUIOSM, LSFTOSM, NUM,     XXXXXXX, XXXXXXX, XXXXXXX, SPCFUN,  LCTLOSM, LALTOSM, XXXXXXX, XXXXXXX, XXXXXXX  }
+ },
+
+ [_SPCFUN] = { /* A blank layer for use with setting a tri-layer state. Only useful in conjunction with other layers. */
+  { _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  },
+  { _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  },
+  { _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  },
+  { _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  },
+  { _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  }
  },
 
  [_NUM] = { /* NUMBERS (& SYMBOLS) */
   { XXXXXXX, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, _______, _______, _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, XXXXXXX  },
   { XXXXXXX, KC_QUOT, KC_TILD, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_MINS, KC_EQL,  XXXXXXX  },
   { KC_LBRC, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    _______, _______, _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_RBRC  },
-  { XXXXXXX, KC_BSLS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_SLSH, XXXXXXX  },
-  { _______, _______, _______, _______, _______, _______, _______, _______, _______, FUN,     _______, _______, _______, _______, _______  }
+  { _______, KC_BSLS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_SLSH, _______  },
+  { _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  }
  },
 
  [_FUN] = { /* FUNCTION */
@@ -111,39 +117,39 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RESET,   _______, _______, _______, BACKLIT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX  },
   { KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   _______, _______, _______, KC_F7,   KC_F8,   KC_F9,  KC_F10,   KC_F11,  KC_F12   },
   { XXXXXXX, COLEMAK, QWERTY,  DVORAK,  _______, BACKLIT, _______, _______, _______, XXXXXXX, KC_PAUS, KC_PSCR, KC_SLCK, XXXXXXX, XXXXXXX  },
-  { _______, _______, _______, _______, _______, _______, _______, _______, _______, EXT_FUN, _______, _______, _______, _______, _______  }
+  { _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  }
  },
 
  [_ARROWS1] = { /* ARROWS1 */
   { XXXXXXX, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, _______, _______, _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, XXXXXXX  },
   { XXXXXXX, XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX  },
   { XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX  },
-  { _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, ARROWS2  },
-  { _______, _______, _______, _______, _______, XXXXXXX, _______, _______, _______, XXXXXXX, _______, _______, _______, _______, _______  }
+  { XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______  },
+  { _______, _______, _______, _______, _______, XXXXXXX, _______, _______, _______, _______, _______, _______, _______, _______, _______  }
  },
 
  [_ARROWS2] = { /* ARROWS2 */
   { XXXXXXX, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, _______, _______, _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, XXXXXXX  },
   { XXXXXXX, XXXXXXX, XXXXXXX, KC_PGUP, XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX  },
   { XXXXXXX, XXXXXXX, KC_HOME, KC_PGDN, KC_END,  XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX  },
-  { XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, EXT_AR2  },
-  { _______, _______, _______, _______, _______, XXXXXXX, _______, _______, _______, XXXXXXX, _______, _______, _______, _______, _______  }
+  { XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______  },
+  { _______, _______, _______, _______, _______, XXXXXXX, _______, _______, _______, _______, _______, _______, _______, _______, _______  }
  },
 
  [_MOUSE1] = { /* MOUSE1 */
   { XXXXXXX, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, _______, _______, _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, XXXXXXX  },
-  { XXXXXXX, XXXXXXX, XXXXXXX, KC_MS_U, XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX  },
-  { XXXXXXX, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX, _______, _______, _______, XXXXXXX, KC_BTN1, KC_BTN2, KC_BTN3, KC_BTN4, KC_BTN5  },
-  { MOUSE2,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______  },
-  { _______, _______, _______, _______, _______, XXXXXXX, _______, _______, _______, XXXXXXX, _______, _______, _______, _______, _______  }
+  { XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX, KC_MS_U, XXXXXXX, XXXXXXX, XXXXXXX  },
+  { XXXXXXX, KC_BTN1, KC_BTN2, KC_BTN3, KC_BTN4, KC_BTN5, _______, _______, _______, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX, XXXXXXX  },
+  { _______, KC_BTN1, KC_BTN2, KC_BTN3, KC_BTN4, KC_BTN5, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX  },
+  { _______, _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX, _______, _______, _______, _______, _______  }
  },
 
  [_MOUSE2] = { /* MOUSE2 */
   { XXXXXXX, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, _______, _______, _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, XXXXXXX  },
-  { XXXXXXX, XXXXXXX, XXXXXXX, KC_WH_U, XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX, KC_MNXT, KC_VOLU, XXXXXXX, XXXXXXX, XXXXXXX  },
-  { XXXXXXX, XXXXXXX, KC_WH_L, KC_WH_D, KC_WH_R, XXXXXXX, _______, _______, _______, XXXXXXX, KC_MPLY, KC_MUTE, XXXXXXX, XXXXXXX, XXXXXXX  },
-  { EXT_MS2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX, KC_MPRV, KC_VOLD, XXXXXXX, XXXXXXX, XXXXXXX  },
-  { _______, _______, _______, _______, _______, XXXXXXX, _______, _______, _______, XXXXXXX, _______, _______, _______, _______, _______  }
+  { XXXXXXX, XXXXXXX, XXXXXXX, KC_MNXT, KC_VOLU, XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX, KC_WH_U, XXXXXXX, XXXXXXX, XXXXXXX  },
+  { XXXXXXX, XXXXXXX, XXXXXXX, KC_MPLY, KC_MUTE, XXXXXXX, _______, _______, _______, XXXXXXX, KC_WH_L, KC_WH_D, KC_WH_R, XXXXXXX, XXXXXXX  },
+  { _______, XXXXXXX, XXXXXXX, KC_MPRV, KC_VOLD, XXXXXXX, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX  },
+  { _______, _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX, _______, _______, _______, _______, _______  }
  },
 
 /*
@@ -175,12 +181,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
-/*
+
 uint32_t layer_state_set_user(uint32_t state) {
-  state = update_tri_layer_state(state, _LOWER, _RAISE, _FUNCT);
+  state = update_tri_layer_state(state, _NUM, _MOUSE1, _MOUSE2);
+  state = update_tri_layer_state(state, _SPCFUN, _ARROWS1, _ARROWS2);
+  state = update_tri_layer_state(state, _SPCFUN, _NUM, _FUN);
+  //state = update_tri_layer_state(state, _ARROWS1, _MOUSE1, _?);
   return state;
 }
-*/
+
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
@@ -199,24 +208,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case DVORAK:
       if (record->event.pressed) {
         set_single_persistent_default_layer(_DVORAK);
-      }
-      return false;
-      break;
-    case EXT_FUN:
-      if (record->event.pressed) {
-	 layer_off(_FUN);
-      }
-      return false;
-      break;
-    case EXT_AR2:
-      if (record->event.pressed) {
-         layer_off(_ARROWS2);
-      }
-      return false;
-      break;
-    case EXT_MS2:
-      if (record->event.pressed) {
-	 layer_off(_MOUSE2);
       }
       return false;
       break;
