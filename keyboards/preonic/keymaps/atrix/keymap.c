@@ -16,22 +16,64 @@
 
 #include QMK_KEYBOARD_H
 
+/*
+ * Atrix Layout, by Evan Rowley, Copyright 2018.
+ *
+ * WORK IN PROGRESS / NOT TESTED
+ *
+ * The purpose of this keymap is to provide an Atreus42-like experience on
+ * different keyboards. In all cases except for derivatises of the Atreus
+ * and HeliDox/Crkbd/Corne, there will be some unsued keys, and also often
+ * outer mod column keys that duplicate the function of lower mod row keys.
+ * While the layout certainly isn't optimal for most of these keyboards, the
+ * layout is optimal for typists who believe the Atreus42's compact layout
+ * is superior. A main differnce you will find on keyboards which use top
+ * number row is the symbol layer's numpad will function as a true numpad,
+ * enabling one to access Home, End, and Del all from the second layer, all
+ * depending on the state of numlock. ;)
+ *
+ * With some modification, this should be compatible across a wide variety 
+ * of ergo/ortho boards, such as:
+ *
+ *   - Atreus42/52/62
+ *   - HeliDox/Crkbd/Corne
+ *   - Planck/Preonic/Let's Split/Helix
+ *   - ErgoDox/ErgoDone/Zen/Sol
+ *   - ReDox/ErgoTravel/Fortitude60
+ *   - Dichotomy
+ *   - Iris
+ *
+ */
+ 
+ 
+/*
+ * Indicator lights: ???
+ *   - Caps Lock
+ *   - Num Lock
+ *   - Scroll Lock
+ *   - Raise Hold
+ *   - Lower Hold/Toggle
+ *   - QWERTY
+ *   - DVORAK
+ */
+ 
+
+extern keymap_config_t keymap_config;
+
 enum preonic_layers {
   _QWERTY,
-  _COLEMAK,
   _DVORAK,
-  _LOWER,
-  _RAISE,
-  _ADJUST
+  _SHIFTED,
+  _SYMBOL,
+  _FUNCTION,
 };
 
 enum preonic_keycodes {
   QWERTY = SAFE_RANGE,
-  COLEMAK,
   DVORAK,
-  LOWER,
-  RAISE,
-  BACKLIT
+  SHIFTED,
+  SYMBOL,
+  BRITE
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -50,11 +92,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid( \
-  KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC, \
-  KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL,  \
-  KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
-  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,  \
-  BACKLIT, KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT  \
+  ___X___, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    ___X___, \
+  KC_LALT, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_RALT, \
+  KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_RCTL, \
+  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, \
+  BACKLIT, KC_ESC,  KC_TAB,  KC_LGUI, SHIFTED, KC_BSPC, KC_SPC,  SYMBOL,  KC_MINS, KC_QUOT, KC_ENT,  ___X___  \
 ),
 
 /* Colemak
@@ -71,11 +113,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_COLEMAK] = LAYOUT_preonic_grid( \
-  KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC, \
-  KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_DEL,  \
-  KC_ESC,  KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT, \
-  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,  \
-  BACKLIT, KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT  \
+  ___X___, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    ___X___, \
+  KC_LALT, KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_RALT, \
+  KC_LCTL, KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_RCTL, \
+  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, \
+  BACKLIT, KC_ESC,  KC_TAB,  KC_LGUI, SHIFTED, KC_BSPC, KC_SPC,  SYMBOL,  KC_MINS, KC_QUOT, KC_ENT,  ___X___  \
 ),
 
 /* Dvorak
@@ -92,13 +134,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_DVORAK] = LAYOUT_preonic_grid( \
-  KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC, \
-  KC_TAB,  KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_DEL,  \
-  KC_ESC,  KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_SLSH, \
-  KC_LSFT, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_ENT,  \
-  BACKLIT, KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT  \
+  ___X___, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    ___X___, \
+  KC_LALT, KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_RALT, \
+  KC_LCTL, KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_RCTL, \
+  KC_LSFT, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_RSFT, \
+  BACKLIT, KC_ESC,  KC_TAB,  KC_LGUI, SHIFTED, KC_BSPC, KC_SPC,  SYMBOL,  KC_MINS, KC_SLSH, KC_ENT,  ___X___  \
 ),
 
+/* Shifted
+ * Basically, whatever layer is underneath this, we shift those characters.
+ *
+ * I almost used a regex like this to make this change in NeoVim: KC_[A-Z0-9]*
+ * 
+ * Instead, I used this one, because I know the length of what I was going to replace with.
+ *
+ * The one above it may have been better if I had vim-easy-align(?) configured for this.
+ *
+*/
+[_DVORAK] = LAYOUT_preonic_grid( \
+  _______, S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), _______, \
+  _______, S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), _______, \
+  _______, S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), _______, \
+  _______, S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), S(_______), _______, \
+  _______, _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______  \
+),
 /* Lower
  * ,-----------------------------------------------------------------------------------.
  * |   ~  |   !  |   @  |   #  |   $  |   %  |   ^  |   &  |   *  |   (  |   )  | Bksp |
